@@ -1,0 +1,50 @@
+# Config server configuration to access the information from remote git repository
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: 
+            eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    
+microservice:
+  product-service:
+    endpoints:
+      endpoint:
+        uri: "http://product-service/api/product/get/"
+  category-service:
+    endpoints:
+      endpoint:
+        uri: "http://product-service/api/category/get/"
+  user-service:
+    endpoints:
+      endpoint:
+        uri: "http://user-service/api/user/get/"
+  discount-service:
+    endpoints:
+      endpoint:
+        uri: "http://discount-service/api/coupon/"
+
+# config server port
+server:
+  port: 9004
+
+
+# Registering config server as an eureka client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
