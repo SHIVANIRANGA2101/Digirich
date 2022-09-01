@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/BallaGayathri/cloud-config-server
+          uri: https://github.com/SHIVANIRANGA2101/cloud-config-server
 
 # config server port
 server:
